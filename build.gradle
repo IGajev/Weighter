@@ -12,7 +12,7 @@ buildscript {
     classpath "gradle.plugin.org.akhikhl.gretty:gretty:2.0.0"
   }
 }
-
+  
 apply plugin: "org.akhikhl.gretty"
 
 repositories {
