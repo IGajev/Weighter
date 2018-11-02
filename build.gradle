@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+ 
+ dependencies {
+
+	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+	provided group: 'javax.servlet', name: 'javax.servlet-api', version: "$javaxVersion"
+
+	// https://mvnrepository.com/artifact/org.springframework/spring-web
+	compile group: 'org.springframework', name: 'spring-web', version: "$springVersion"
+	// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+	compile group: 'org.springframework', name: 'spring-webmvc', version: "$springVersion"
+	// https://mvnrepository.com/artifact/org.springframework/spring-context
+	compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
+	// https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
+	compile group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: "$jstlVersion"
+
+}
+
