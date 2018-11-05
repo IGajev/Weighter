@@ -27,17 +27,39 @@ configurations {
  
  dependencies {
 
+    //*********************
+	//Java Servlet related
+	//*********************	
 	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 	provided group: 'javax.servlet', name: 'javax.servlet-api', version: "$javaxVersion"
+	// https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
+	compile group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: "$jstlVersion"
 
+    //*********************
+	//Spring Related
+    //*********************
 	// https://mvnrepository.com/artifact/org.springframework/spring-web
 	compile group: 'org.springframework', name: 'spring-web', version: "$springVersion"
 	// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 	compile group: 'org.springframework', name: 'spring-webmvc', version: "$springVersion"
 	// https://mvnrepository.com/artifact/org.springframework/spring-context
 	compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
-	// https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
-	compile group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: "$jstlVersion"
-
+	
+    //*********************
+	//Unit Test Related
+    //*********************
+	// https://mvnrepository.com/artifact/org.springframework/spring-test
+	testCompile group: 'org.springframework', name: 'spring-test', version: "$springVersion"
+	// https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine
+	testCompile group: 'org.junit.platform', name: 'junit-platform-engine', version: "$JUnitPlatformVersion"
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "$JUnitVersion"
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: "$JUnitVersion"
+	// https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
+	testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: "$HamcrestVersion"
+	// https://mvnrepository.com/artifact/org.mockito/mockito-core
+	testCompile group: 'org.mockito', name: 'mockito-core', version: "$MockitoVersion"
+		
 }
 
