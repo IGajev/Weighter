@@ -2,7 +2,7 @@ drop table if exists Measures;
 drop table if exists Weighters;
 
 create table Weighters (
-  weighter_id int not null auto_increment,
+  weighterId int not null auto_increment,
   firstName varchar(255) not null,
   lastName varchar(255) not null,
   username varchar(255) not null,
@@ -10,19 +10,19 @@ create table Weighters (
   sex varchar(10) not null,
   wrist double,
   height double,
-  sport_factor double not null,
-  primary key (weighter_id)
+  sportFactor double not null,
+  primary key (weighterId)
 );
 
 
  create table Measures (
-   measure_id int not null auto_increment,
-   weighter_id int not null,
+   measureId int not null auto_increment,
+   weighterId int not null,
    weight double not null,
    waist double not null,
    hips double,
    date datetime not null,
-   primary key (measure_id),
-   foreign key (weighter_id) references Weighters(weighter_id)
+   primary key (measureId),
+   foreign key (weighterId) references Weighters(weighterId)
  );
  

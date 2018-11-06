@@ -6,7 +6,7 @@ public class WeighterWebAppInitializer extends AbstractAnnotationConfigDispatche
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { RootConfig.class };
+		return new Class<?>[] { DataConfig.class };
 	}
 
 	@Override

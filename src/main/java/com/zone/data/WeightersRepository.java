@@ -1,6 +1,6 @@
 package com.zone.data;
 
-public interface WeightersRepositoy {
+public interface WeightersRepository {
 
 	public void saveWeighter(Weighter weighter);
 	public Weighter retrieveWeighter();
