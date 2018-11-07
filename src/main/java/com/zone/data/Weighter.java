@@ -1,5 +1,8 @@
 package com.zone.data;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class Weighter {
 
 	public Weighter() {}
@@ -69,5 +72,14 @@ public class Weighter {
 		this.password = password;
 	}
 
-	
+	@Override
+	  public boolean equals(Object that) {
+	    return EqualsBuilder.reflectionEquals(this, that);
+	  }
+	  
+	@Override
+	  public int hashCode() {
+	    return HashCodeBuilder.reflectionHashCode(this);
+	  }
+
 }

@@ -28,7 +28,7 @@ configurations {
  dependencies {
 
     //*********************
-	//Java Servlet related
+	//Java related
 	//*********************	
 	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 	provided group: 'javax.servlet', name: 'javax.servlet-api', version: "$javaxVersion"
@@ -36,6 +36,8 @@ configurations {
 	compile group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: "$jstlVersion"
 	// https://mvnrepository.com/artifact/javax.inject/javax.inject
 	compile group: 'javax.inject', name: 'javax.inject', version: "$javaxVersion"
+	// https://mvnrepository.com/artifact/commons-lang/commons-lang
+	compile group: 'commons-lang', name: 'commons-lang', version: "$commonsVersion"
 
     //*********************
 	//Spring Related

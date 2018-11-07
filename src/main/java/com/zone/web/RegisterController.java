@@ -12,12 +12,16 @@ import com.zone.data.WeightersRepository;
 @RequestMapping(value="/register")
 public class RegisterController {
 	
-	@Autowired
 	private WeightersRepository weightersRepository;
+	
+	@Autowired
+	public RegisterController(WeightersRepository weightersRepository) {
+		this.weightersRepository = weightersRepository;
+	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String profile() {
-		return "register";
+		return "registerForm";
 	}
 
 	@RequestMapping(method=RequestMethod.POST)

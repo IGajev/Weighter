@@ -21,18 +21,14 @@
 			<br/>
 			Wrist: <input type="text" name="wrist" />cm<br/>
 			Height: <input type="text" name="height" />cm<br/>
-			Sport Factor: 
-				No training at all           <input type="radio" name="sportFactor" value="0.5"/><br/>
-				Easy (walking)               <input type="radio" name="sportFactor" value="0.6"/><br/>
-				Moderate(3 hours a week)     <input type="radio" name="sportFactor" value="0.7"/><br/>
-				Active(5 hours a week)       <input type="radio" name="sportFactor" value="0.8"/><br/>
-				Very active (10 hours a week)<input type="radio" name="sportFactor" value="0.9"/><br/>
-				Ultimate(2 times a day)      <input type="radio" name="sportFactor" value="1.0"/><br/>
+			Sport Factor: <br/>
+			<input type="radio" name="sportFactor" value="0.5"/>	No training at all           <br/>
+			<input type="radio" name="sportFactor" value="0.6"/>	Easy (walking)               <br/>
+			<input type="radio" name="sportFactor" value="0.7"/>	Moderate(3 hours a week)     <br/>
+			<input type="radio" name="sportFactor" value="0.8"/>	Active(5 hours a week)       <br/>
+			<input type="radio" name="sportFactor" value="0.9"/>	Very active (10 hours a week)<br/>
+			<input type="radio" name="sportFactor" value="1.0"/>	Ultimate(2 times a day)      <br/>
 			<input type="submit" value="Register" />
 		</form>
 	</body>
 </html>
-
-
-
-
