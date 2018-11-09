@@ -1,7 +1,10 @@
 package com.zone.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,7 +28,10 @@ public class RegisterController {
 	}
 
 	@RequestMapping(method=RequestMethod.POST)
-	public String postProfile(Weighter weighter) {
+	public String postProfile(@Valid Weighter weighter, Errors errors) {
+		if (errors.hasErrors()) {
+			return "registerForm";
+		}
 		weightersRepository.saveWeighter(weighter);
 		return "redirect:/profile";
 	}

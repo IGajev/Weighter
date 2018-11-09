@@ -31,13 +31,17 @@ configurations {
 	//Java related
 	//*********************	
 	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
-	provided group: 'javax.servlet', name: 'javax.servlet-api', version: "$javaxVersion"
+	provided group: 'javax.servlet', name: 'javax.servlet-api', version: "$javaxServletVersion"
+	// https://mvnrepository.com/artifact/javax.inject/javax.inject
+	compile group: 'javax.inject', name: 'javax.inject', version: "$javaxInjectVersion"
+	// https://mvnrepository.com/artifact/javax.validation/validation-api
+	compile group: 'javax.validation', name: 'validation-api', version: "$javaxValidationVersion"
 	// https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
 	compile group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: "$jstlVersion"
-	// https://mvnrepository.com/artifact/javax.inject/javax.inject
-	compile group: 'javax.inject', name: 'javax.inject', version: "$javaxVersion"
 	// https://mvnrepository.com/artifact/commons-lang/commons-lang
 	compile group: 'commons-lang', name: 'commons-lang', version: "$commonsVersion"
+	// https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+	compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: "$hibernateValVersion"
 
     //*********************
 	//Spring Related

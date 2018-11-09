@@ -11,7 +11,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
-
 import com.zone.data.Weighter;
 import com.zone.data.WeightersRepository;
 
@@ -50,5 +49,5 @@ public class RegisterControllerTest {
 		
 		verify(weightersRepository, times(1)).saveWeighter(weighter);
 	}
-	
+
 }

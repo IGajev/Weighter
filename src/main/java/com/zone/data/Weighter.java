@@ -1,5 +1,10 @@
 package com.zone.data;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
@@ -8,13 +13,35 @@ public class Weighter {
 	public Weighter() {}
 	
 	private long weighterId;
+
+	@DecimalMax(value = "100")
+	@DecimalMin(value = "1")
 	private double wrist;
+
+	@DecimalMax(value = "300")
+	@DecimalMin(value = "1")
 	private double height;
+	
+	@NotNull
 	private double sportFactor;
+	
+	@NotNull
 	private String sex;
+	
+	@NotNull
+	@Size(min=2, max=30)
 	private String firstName;
+	
+	@NotNull
+	@Size(min=2, max=30)
 	private String lastName;
+	
+	@NotNull
+	@Size(min=5, max=16)
 	private String username;
+	
+	@NotNull
+	@Size(min=6, max=25)
 	private String password;
 	
 	public long getWeighterId() {
@@ -73,13 +100,13 @@ public class Weighter {
 	}
 
 	@Override
-	  public boolean equals(Object that) {
+	public boolean equals(Object that) {
 	    return EqualsBuilder.reflectionEquals(this, that);
-	  }
+	}
 	  
 	@Override
-	  public int hashCode() {
+	public int hashCode() {
 	    return HashCodeBuilder.reflectionHashCode(this);
-	  }
+	}
 
 }

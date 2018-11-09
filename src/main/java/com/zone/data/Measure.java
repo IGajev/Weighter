@@ -2,14 +2,25 @@ package com.zone.data;
 
 import java.util.Date;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
 public class Measure {
 
 	public Measure() {}
 	
 	private long measureId;
+	
+	@NotNull
+	@DecimalMax(value = "500")
+	@DecimalMin(value = "1")
 	private double weight;
+	
 	private double hips;
+	
 	private double waist;
+	
 	private Date date;
 	
 	public long getMeasureId() {
