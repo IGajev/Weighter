@@ -12,18 +12,18 @@ public class Weighter {
 
 	public Weighter() {}
 	
-	private long weighterId;
+	private Long weighterId;
 
 	@DecimalMax(value = "100")
 	@DecimalMin(value = "1")
-	private double wrist;
+	private Double wrist;
 
 	@DecimalMax(value = "300")
 	@DecimalMin(value = "1")
-	private double height;
+	private Double height;
 	
 	@NotNull
-	private double sportFactor;
+	private Double sportFactor;
 	
 	@NotNull
 	private String sex;
@@ -44,57 +44,74 @@ public class Weighter {
 	@Size(min=6, max=25)
 	private String password;
 	
-	public long getWeighterId() {
+	public Long getWeighterId() {
 		return weighterId;
 	}
-	public void setWeighterId(long weighterId) {
+
+	public void setWeighterId(Long weighterId) {
 		this.weighterId = weighterId;
 	}
-	public double getWrist() {
+
+	public Double getWrist() {
 		return wrist;
 	}
-	public void setWrist(double wrist) {
+
+	public void setWrist(Double wrist) {
 		this.wrist = wrist;
 	}
-	public double getHeight() {
+
+	public Double getHeight() {
 		return height;
 	}
-	public void setHeight(double height) {
+
+	public void setHeight(Double height) {
 		this.height = height;
 	}
-	public double getSportFactor() {
+
+	public Double getSportFactor() {
 		return sportFactor;
 	}
-	public void setSportFactor(double sportFactor) {
+
+	public void setSportFactor(Double sportFactor) {
 		this.sportFactor = sportFactor;
 	}
+
 	public String getSex() {
 		return sex;
 	}
+
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}

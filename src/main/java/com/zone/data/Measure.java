@@ -10,47 +10,57 @@ public class Measure {
 
 	public Measure() {}
 	
-	private long measureId;
+	private Long measureId;
 	
 	@NotNull
 	@DecimalMax(value = "500")
 	@DecimalMin(value = "1")
-	private double weight;
+	private Double weight;
 	
-	private double hips;
+	private Double hips;
 	
-	private double waist;
+	private Double waist;
 	
 	private Date date;
-	
-	public long getMeasureId() {
+
+	public Long getMeasureId() {
 		return measureId;
 	}
-	public void setMeasureId(long measureId) {
+
+	public void setMeasureId(Long measureId) {
 		this.measureId = measureId;
 	}
-	public double getWeight() {
+
+	public Double getWeight() {
 		return weight;
 	}
-	public void setWeight(double weight) {
+
+	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	public double getHips() {
+
+	public Double getHips() {
 		return hips;
 	}
-	public void setHips(double hips) {
+
+	public void setHips(Double hips) {
 		this.hips = hips;
 	}
-	public double getWaist() {
+
+	public Double getWaist() {
 		return waist;
 	}
-	public void setWaist(double waist) {
+
+	public void setWaist(Double waist) {
 		this.waist = waist;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
 }

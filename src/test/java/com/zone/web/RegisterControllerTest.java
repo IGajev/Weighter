@@ -1,6 +1,7 @@
 package com.zone.web;
 
 import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -12,6 +13,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import com.zone.data.Weighter;
+import com.zone.data.WeightersException;
 import com.zone.data.WeightersRepository;
 
 public class RegisterControllerTest {
@@ -50,4 +52,16 @@ public class RegisterControllerTest {
 		verify(weightersRepository, times(1)).saveWeighter(weighter);
 	}
 
+	@Test
+	public void registerControllerWeightersExceptionTest() throws Exception {
+		WeightersRepository weightersRepository = mock(WeightersRepository.class);
+		RegisterController registerController = new RegisterController(weightersRepository);
+		MockMvc mockMvc = standaloneSetup(registerController).build();
+		Weighter weighter = new Weighter();
+		
+		doThrow(new WeightersException()).when(weightersRepository).saveWeighter(weighter);
+		
+		mockMvc.perform(post("/register"))
+		.andExpect(view().name("error"));
+	}
 }

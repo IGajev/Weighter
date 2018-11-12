@@ -15,20 +15,40 @@
 			Last Name: <input type="text" name="lastName" /><br/>
 			User name: <input type="text" name="username" /><br/>
 			Password: <input type="password" name="password" /><br/>
+			
+			<script type="text/javascript">
+			
+			function maleFemaleCheck() {
+			    if (document.getElementById('maleCheck').checked) {
+			        document.getElementById('ifMale').style.display = 'block';
+			    	document.getElementById('ifFemale').style.display = 'none';
+			    }
+			    else {
+			    	document.getElementById('ifMale').style.display = 'none';
+			    	document.getElementById('ifFemale').style.display = 'block';
+			    }
+			}
+			</script>
+			
 			Sex: 
-				male<input type="radio" name="sex" value="male"/> 
-				female<input type="radio" name="sex" value="female"/>
+				male<input type="radio" onclick="javascript:maleFemaleCheck();" name="sex" value="male" id="maleCheck" checked="true"/> 
+				female<input type="radio" onclick="javascript:maleFemaleCheck();" name="sex" value="female" id="femaleCheck"/>
 			<br/>
-			Wrist: <input type="text" name="wrist" />cm<br/>
-			Height: <input type="text" name="height" />cm<br/>
+			<div id="ifMale" style="display:block">
+		         Wrist: <input type="text" name="wrist"/>cm<br/>
+			 </div>
+			<div id="ifFemale" style="display:none">
+		         Height: <input type="text" name="height"/>cm<br/>
+			 </div>
+			
 			Sport Factor: <br/>
-			<input type="radio" name="sportFactor" value="0.5"/>	No training at all           <br/>
+			<input type="radio" name="sportFactor" value="0.5" checked="true"/>	No training at all           <br/>
 			<input type="radio" name="sportFactor" value="0.6"/>	Easy (walking)               <br/>
 			<input type="radio" name="sportFactor" value="0.7"/>	Moderate(3 hours a week)     <br/>
 			<input type="radio" name="sportFactor" value="0.8"/>	Active(5 hours a week)       <br/>
 			<input type="radio" name="sportFactor" value="0.9"/>	Very active (10 hours a week)<br/>
 			<input type="radio" name="sportFactor" value="1.0"/>	Ultimate(2 times a day)      <br/>
-			<input type="submit" value="Register" />
+			<input type="submit" value="Register" /><br/>
 		</form>
 	</body>
 </html>

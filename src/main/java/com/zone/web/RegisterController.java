@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zone.data.Weighter;
+import com.zone.data.WeightersException;
 import com.zone.data.WeightersRepository;
 
 @Controller
@@ -32,7 +33,12 @@ public class RegisterController {
 		if (errors.hasErrors()) {
 			return "registerForm";
 		}
-		weightersRepository.saveWeighter(weighter);
+		try {
+			weightersRepository.saveWeighter(weighter);
+		} catch (WeightersException e) {
+			e.printStackTrace();
+			return "error";
+		}
 		return "redirect:/profile";
 	}
 }
