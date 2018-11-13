@@ -11,6 +11,7 @@
 		<h1>Register</h1>
 		
 		<form method="POST">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 			First Name: <input type="text" name="firstName" /><br/>
 			Last Name: <input type="text" name="lastName" /><br/>
 			User name: <input type="text" name="username" /><br/>
