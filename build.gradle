@@ -54,6 +54,14 @@ configurations {
 	compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
 	// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
 	compile group: 'org.springframework', name: 'spring-jdbc', version: "$springVersion"
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+	compile group: 'org.springframework.security', name: 'spring-security-core', version: "$springSecurityVersion"
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+	compile group: 'org.springframework.security', name: 'spring-security-web', version: "$springSecurityVersion"
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+	compile group: 'org.springframework.security', name: 'spring-security-config', version: "$springSecurityVersion"
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: "$springSecurityVersion"
 
     //*********************
 	//Database Related
