@@ -51,5 +51,7 @@
 			<input type="radio" name="sportFactor" value="1.0"/>	Ultimate(2 times a day)      <br/>
 			<input type="submit" value="Register" /><br/>
 		</form>
+		Already Registered?
+		<a href="<c:url value="/profile" />">Login</a>
 	</body>
 </html>
