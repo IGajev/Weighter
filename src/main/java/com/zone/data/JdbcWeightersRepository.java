@@ -12,7 +12,8 @@ public class JdbcWeightersRepository implements WeightersRepository {
 	
 	private final String SQL_INSERT_MALE_WEIGHTER = "insert into weighters (wrist, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
 	private final String SQL_INSERT_FEMALE_WEIGHTER = "insert into weighters (height, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
-
+	private final String SQL_CHECK_IF_WEIGHTER_EXISTS = "select count(*) from weighters where username = ?";
+	
 	@Inject
 	public JdbcWeightersRepository(JdbcOperations jdbcOperations) {
 		this.jdbcOperations = jdbcOperations;
@@ -50,6 +51,13 @@ public class JdbcWeightersRepository implements WeightersRepository {
 	public Weighter retrieveWeighter() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean weighterIsUnique(String username) {
+		Integer count = new Integer(0);
+		count = jdbcOperations.queryForObject(SQL_CHECK_IF_WEIGHTER_EXISTS, Integer.class, username);
+		return ((count > 0) ? false:true);
 	}
 
 }

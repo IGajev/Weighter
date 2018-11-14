@@ -30,12 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests()
 		//TODO: Remove the next line, when authentication is ready for implementations 
-		.regexMatchers("/profile.*").authenticated()
+		//.regexMatchers("/profile.*").authenticated()
 		.anyRequest().permitAll()
 		.and().formLogin()
-		.and().logout().logoutSuccessUrl("/homepage")
-		.and().rememberMe()
-			.tokenValiditySeconds(14400) //token valid 4 hours.
-			.key("weighterKey");
+		.and().logout().logoutSuccessUrl("/homepage");
 		}
 }

@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.zone.annotations.UniqueUsername;
+
 public class Weighter {
 
 	public Weighter() {}
@@ -37,6 +39,7 @@ public class Weighter {
 	private String lastName;
 	
 	@NotNull
+	@UniqueUsername
 	@Size(min=5, max=16)
 	private String username;
 	
