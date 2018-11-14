@@ -29,8 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-		//TODO: Remove the next line, when authentication is ready for implementations 
-		//.regexMatchers("/profile.*").authenticated()
+		.regexMatchers("/profile.*").authenticated()
 		.anyRequest().permitAll()
 		.and().formLogin()
 		.and().logout().logoutSuccessUrl("/homepage");

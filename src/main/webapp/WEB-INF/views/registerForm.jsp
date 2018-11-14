@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ page session="false" %>
 <html>
 	<head>
@@ -10,12 +11,19 @@
 	<body>
 		<h1>Register</h1>
 		
-		<form method="POST">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-			First Name: <input type="text" name="firstName" /><br/>
-			Last Name: <input type="text" name="lastName" /><br/>
-			User name: <input type="text" name="username" /><br/>
-			Password: <input type="password" name="password" /><br/>
+		<sf:form method="POST" commandName="weighter">
+			First Name: <sf:input path="firstName" />
+				<sf:errors path="firstName" cssClass="error"/>
+					<br/>
+			Last Name: <sf:input path="lastName" />
+				<sf:errors path="lastName" cssClass="error"/>
+				<br/>
+			User name: <sf:input path="username" />
+				<sf:errors path="username" cssClass="error"/>
+					<br/>
+			Password: <sf:password path="password" />
+				<sf:errors path="password" cssClass="error"/>
+					<br/>
 			
 			<script type="text/javascript">
 			
@@ -32,25 +40,30 @@
 			</script>
 			
 			Sex: 
-				male<input type="radio" onclick="javascript:maleFemaleCheck();" name="sex" value="male" id="maleCheck" checked="true"/> 
-				female<input type="radio" onclick="javascript:maleFemaleCheck();" name="sex" value="female" id="femaleCheck"/>
+				male<sf:radiobutton onclick="javascript:maleFemaleCheck();" path="sex" value="male" id="maleCheck" checked="true"/> 
+				female<sf:radiobutton onclick="javascript:maleFemaleCheck();" path="sex" value="female" id="femaleCheck"/>
 			<br/>
 			<div id="ifMale" style="display:block">
-		         Wrist: <input type="text" name="wrist"/>cm<br/>
+		         Wrist: <sf:input path="wrist"/>cm
+		         	<sf:errors path="wrist" cssClass="error"/>
+		         		<br/>
 			 </div>
 			<div id="ifFemale" style="display:none">
-		         Height: <input type="text" name="height"/>cm<br/>
+		         Height: <sf:input path="height"/>cm
+		         	<sf:errors path="height" cssClass="error"/>
+		         		<br/>
 			 </div>
 			
 			Sport Factor: <br/>
-			<input type="radio" name="sportFactor" value="0.5" checked="true"/>	No training at all           <br/>
-			<input type="radio" name="sportFactor" value="0.6"/>	Easy (walking)               <br/>
-			<input type="radio" name="sportFactor" value="0.7"/>	Moderate(3 hours a week)     <br/>
-			<input type="radio" name="sportFactor" value="0.8"/>	Active(5 hours a week)       <br/>
-			<input type="radio" name="sportFactor" value="0.9"/>	Very active (10 hours a week)<br/>
-			<input type="radio" name="sportFactor" value="1.0"/>	Ultimate(2 times a day)      <br/>
-			<input type="submit" value="Register" /><br/>
-		</form>
+			<sf:radiobutton path="sportFactor" value="0.5" checked="true"/>	No training at all           <br/>
+			<sf:radiobutton path="sportFactor" value="0.6"/>	            Easy (walking)               <br/>
+			<sf:radiobutton path="sportFactor" value="0.7"/>	            Moderate(3 hours a week)     <br/>
+			<sf:radiobutton path="sportFactor" value="0.8"/>	            Active(5 hours a week)       <br/>
+			<sf:radiobutton path="sportFactor" value="0.9"/>	            Very active (10 hours a week)<br/>
+			<sf:radiobutton path="sportFactor" value="1.0"/>	            Ultimate(2 times a day)      <br/>
+			<sf:errors path="sportFactor" cssClass="error"/>
+			<input type="submit" value="Register"/><br/>
+		</sf:form>
 		Already Registered?
 		<a href="<c:url value="/profile" />">Login</a>
 	</body>
