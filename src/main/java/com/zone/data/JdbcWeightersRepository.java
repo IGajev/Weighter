@@ -5,6 +5,8 @@ import javax.inject.Inject;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
+import com.zone.entities.Weighter;
+
 @Repository
 public class JdbcWeightersRepository implements WeightersRepository {
 

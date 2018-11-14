@@ -8,9 +8,9 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zone.data.Weighter;
 import com.zone.data.WeightersException;
 import com.zone.data.WeightersRepository;
+import com.zone.entities.Weighter;
 
 @Controller
 @RequestMapping(value="/register")

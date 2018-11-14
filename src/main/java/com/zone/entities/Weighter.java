@@ -1,4 +1,4 @@
-package com.zone.data;
+package com.zone.entities;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;

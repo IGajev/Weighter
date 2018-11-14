@@ -1,4 +1,4 @@
-package com.zone.data;
+package com.zone.entities;
 
 import java.util.Date;
 
