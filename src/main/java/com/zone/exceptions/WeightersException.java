@@ -1,4 +1,4 @@
-package com.zone.data;
+package com.zone.exceptions;
 
 public class WeightersException extends Exception {
 

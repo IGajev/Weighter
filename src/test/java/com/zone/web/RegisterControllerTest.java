@@ -13,9 +13,9 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.zone.data.WeightersException;
 import com.zone.data.WeightersRepository;
 import com.zone.entities.Weighter;
+import com.zone.exceptions.WeightersException;
 
 public class RegisterControllerTest {
 
