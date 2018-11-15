@@ -24,7 +24,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	//This method is asking DispatcherServlet to forward requests for static resources to the 
-	//servlet container’s default servlet and not to try to handle them itself.
+	//servlet container default servlet and not to try to handle them itself.
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
