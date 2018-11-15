@@ -24,10 +24,8 @@ public class JdbcWeightersRepository implements WeightersRepository {
 	
 	@Override
 	public void saveWeighter(Weighter weighter) throws WeightersException {
-		if (weighter.getSex() == null) {
-			throw new WeightersException();
-		}
-		else if ( weighter.getSex().equals("male") ) {
+		
+		if ( (weighter.getSex() != null) && ( weighter.getSex().equals("male")) )  {
 			jdbcOperations.update(SQL_INSERT_MALE_WEIGHTER,
 					weighter.getWrist(),
 					weighter.getSportFactor(),
@@ -37,7 +35,7 @@ public class JdbcWeightersRepository implements WeightersRepository {
 					weighter.getUsername(),
 					weighter.getPassword()
 					);
-		} else if (weighter.getSex().equals("female")) {
+		} else if ( (weighter.getSex() != null) && (weighter.getSex().equals("female")) ) {
 			jdbcOperations.update(SQL_INSERT_FEMALE_WEIGHTER,
 					weighter.getHeight(),
 					weighter.getSportFactor(),
