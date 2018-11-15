@@ -1,7 +1,10 @@
-drop table if exists Measures;
-drop table if exists Weighters;
+drop table if exists measures;
+drop table if exists weighters;
+drop database if exists WeighterDatabase;
 
-create table Weighters (
+create database WeighterDatabase;
+use WeighterDatabase;
+create table weighters (
   weighterId int not null auto_increment,
   firstName varchar(255) not null,
   lastName varchar(255) not null,
@@ -15,7 +18,7 @@ create table Weighters (
 );
 
 
- create table Measures (
+ create table measures (
    measureId int not null auto_increment,
    weighterId int not null,
    weight double not null,
@@ -23,6 +26,6 @@ create table Weighters (
    hips double,
    date datetime not null,
    primary key (measureId),
-   foreign key (weighterId) references Weighters(weighterId)
+   foreign key (weighterId) references weighters(weighterId)
  );
  
