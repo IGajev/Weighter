@@ -38,10 +38,11 @@ public class ProfileController {
 		
 		Weighter weighter = weightersRepository.retrieveWeighter(username);
 		Measure lastMeasure = measuresRepository.retrieveLastMeasureForWeighter(weighter);
+		model.addAttribute("weighter", weighter);
+		model.addAttribute("measure", new Measure());
 		if ( lastMeasure == null ) {
 			return "emptyProfileMeasures";
 		}
-		model.addAttribute("weighter", weighter);
 		return "profileView";
 	}
 
