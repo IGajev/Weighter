@@ -16,6 +16,7 @@ public class JdbcWeightersRepository implements WeightersRepository {
 	private final String SQL_INSERT_MALE_WEIGHTER = "insert into weighters (wrist, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
 	private final String SQL_INSERT_FEMALE_WEIGHTER = "insert into weighters (height, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
 	private final String SQL_CHECK_IF_WEIGHTER_EXISTS = "select count(*) from weighters where username = ?";
+	private final String SQL_GET_WEIGHTER_BY_USERNAME = "select * from weighters where username = ?";
 	
 	@Inject
 	public JdbcWeightersRepository(JdbcOperations jdbcOperations) {
@@ -52,9 +53,21 @@ public class JdbcWeightersRepository implements WeightersRepository {
 	}
 
 	@Override
-	public Weighter retrieveWeighter() {
-		// TODO Auto-generated method stub
-		return null;
+	public Weighter retrieveWeighter(String username) {
+		Weighter weighter = jdbcOperations.queryForObject(SQL_GET_WEIGHTER_BY_USERNAME, (rs, rowNum) ->  { 
+			Weighter w = new Weighter();
+			w.setFirstName(rs.getString("firstName"));
+			w.setLastName(rs.getString("lastName"));
+			w.setUsername(rs.getString("username"));
+			w.setSex(rs.getString("sex"));
+			w.setWrist(rs.getDouble("wrist"));
+			w.setHeight(rs.getDouble("height"));
+			w.setSportFactor(rs.getDouble("sportFactor"));
+			w.setWeighterId(rs.getLong("weighterId"));
+			//Password omitted for security reasons!
+			return w;
+		}, username);
+		return weighter;
 	}
 
 	@Override

@@ -9,4 +9,5 @@ public interface MeasuresRepository {
 
 	public void saveMeasure(Measure measure, Weighter weighter);
 	public List<Measure> retrieveAllMeasuresForWeighter(Weighter weighter);
+	public Measure retrieveLastMeasureForWeighter(Weighter weighter);
 }

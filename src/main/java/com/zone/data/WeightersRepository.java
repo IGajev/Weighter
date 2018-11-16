@@ -6,6 +6,6 @@ import com.zone.exceptions.WeightersException;
 public interface WeightersRepository {
 
 	public void saveWeighter(Weighter weighter) throws WeightersException;
-	public Weighter retrieveWeighter();
+	public Weighter retrieveWeighter(String username);
 	public boolean weighterIsUnique(String username);
 }
