@@ -22,7 +22,7 @@ create table weighters (
    measureId int not null auto_increment,
    weighterId int not null,
    weight double not null,
-   waist double not null,
+   waist double,
    hips double,
    date datetime not null,
    primary key (measureId),
