@@ -15,7 +15,8 @@ public class JdbcMeasuresRepository implements MeasuresRepository {
 	private final String SQL_INSERT_MEASURE = "insert into measures (weight, hips, waist, date, weighterId) values (?, ?, ?, ?, ?)";
 	private final String SQL_GET_LAST_MEASURE = "select * from measures order by measureId desc limit 1";
 	private final String SQL_CHECK_IF_MEASURES_EXISTS = "select count(*) from measures where weighterId = ?";
-	
+	private final String SQL_GET_ALL_MEASURES_FOR_WEIGHTER = "select measureId, weight, waist, hips, date from measures where weighterId = ?";
+
 	@Inject
 	public JdbcMeasuresRepository(JdbcOperations jdbcOperations) {
 		this.jdbcOperations = jdbcOperations;
@@ -33,7 +34,18 @@ public class JdbcMeasuresRepository implements MeasuresRepository {
 
 	@Override
 	public List<Measure> retrieveAllMeasuresForWeighter(Weighter weighter) {
-		return null;
+		return jdbcOperations.query(
+				SQL_GET_ALL_MEASURES_FOR_WEIGHTER, 
+				(rs, rsnum) -> {
+					Measure m = new Measure();
+					m.setMeasureId(rs.getLong("measureId"));
+					m.setDate(rs.getDate("date"));
+					m.setHips(rs.getDouble("hips"));
+					m.setWeight(rs.getDouble("weight"));
+					m.setWaist(rs.getDouble("waist"));
+					return m;
+				},
+				weighter.getWeighterId());
 	}
 
 	@Override

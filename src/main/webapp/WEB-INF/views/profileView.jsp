@@ -60,6 +60,7 @@
 			</div>
 			<input type="submit" value="Submit Data"/><br/>
 		</sf:form>
+		<a href="<c:url value="/profile/plots" />">Profile Graphs</a> <br/>
 		<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 			<input type="submit" value="Log Out" /><br/>

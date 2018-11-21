@@ -1,6 +1,10 @@
 package com.zone.web;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -13,6 +17,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.google.gson.Gson;
 import com.zone.data.MeasuresRepository;
 import com.zone.data.WeightersRepository;
 import com.zone.entities.Measure;
@@ -49,7 +54,22 @@ public class ProfileController {
 			measure.setDate(new Date());
 			measuresRepository.saveMeasure(measure, this.getLoggedWeighter());
 		}
-		return "draw";
+		return "redirect:/profile/plots";
+	}
+	
+	@RequestMapping(value="/plots", method=RequestMethod.GET)
+	public String drawPage(Model model) {
+		List<Measure> measures = measuresRepository.retrieveAllMeasuresForWeighter(getLoggedWeighter());
+		Gson gsonObj = new Gson();
+		Map<Object,Object> map = null;
+		List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+		for (Measure measure : measures) {
+			map = new HashMap<Object,Object>();	map.put("x", measure.getDate().getTime()); map.put("y", measure.getWeight()); list.add(map);
+		}
+
+		String dataPoints = gsonObj.toJson(list);
+		model.addAttribute("dataPoints", dataPoints);
+		return "drawPlots";
 	}
 	
 	private Weighter getLoggedWeighter() {
@@ -64,3 +84,4 @@ public class ProfileController {
 		return weighter;
 	}
 }
+
