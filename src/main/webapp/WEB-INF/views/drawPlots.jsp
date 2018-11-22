@@ -1,6 +1,8 @@
-<!DOCTYPE HTML>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <html>
 <head>  
+  <script src="${pageContext.request.contextPath}/resources/canvasjs.min.js"></script>
   <script type="text/javascript">
   window.onload = function () {
     
@@ -12,11 +14,12 @@
         text: "Your Weight Over Time" 
       },
       axisX :{
-    	title: "Time",
+    	title: "Time [day]",
         labelAngle: -30
       },
       axisY :{
-      	title: "Weight"
+      	title: "Weight [kg]",
+      	includeZero: false
       },
       data: [
     	  {
@@ -31,9 +34,8 @@
     chart.render();
   }
   </script>
-  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+  </head>
   <body>
-    <div id="chartContainer" style="height: 300px; width: 75%;">
-    </div>
+	<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
   </body>
-  </html>
+</html>
