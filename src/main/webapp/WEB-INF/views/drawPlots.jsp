@@ -7,7 +7,7 @@
   window.onload = function () {
     
    
-    var chart = new CanvasJS.Chart("chartContainer",
+    var chart = new CanvasJS.Chart("chartContainerWeight",
     {
       zoomEnabled: true,      
       title:{
@@ -25,17 +25,45 @@
     	  {
     		  type:"line",
     		  xValueType: "dateTime",
-    		  dataPoints:${dataPoints}
+    		  dataPoints:${dataPointsWeight}
     	  }
       ]
       
    });
 
     chart.render();
+
+    var chart = new CanvasJS.Chart("chartContainerFats",
+    	    {
+    	      zoomEnabled: true,      
+    	      title:{
+    	        text: "Your Weight Over Time" 
+    	      },
+    	      axisX :{
+    	    	title: "Time [day]",
+    	        labelAngle: -30
+    	      },
+    	      axisY :{
+    	      	title: "Weight [kg]",
+    	      	includeZero: false
+    	      },
+    	      data: [
+    	    	  {
+    	    		  type:"line",
+    	    		  xValueType: "dateTime",
+    	    		  dataPoints:${dataPointsFats}
+    	    	  }
+    	      ]
+    	      
+    	   });
+
+    	    chart.render();
   }
   </script>
   </head>
   <body>
-	<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div id="chartContainerWeight" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<br/>
+	<div id="chartContainerFats" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
   </body>
 </html>

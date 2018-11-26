@@ -9,9 +9,7 @@
 			href="<c:url value="/resources/style.css" />" >
 	</head>
 	<body>
-		<h1>Dear user, you are logged in as:</h1>
-			<div class="weighter"><c:out value="${weighter.firstName}" /></div>
-			<div class="weighter"><c:out value="${weighter.lastName}" /></div>
+		<h1>Dear ${weighter.firstName}, you are logged in as: ${weighter.username} !</h1>
 		<br/>
 		<script type="text/javascript">
 		function displayCheck() {
@@ -38,12 +36,14 @@
 		</script>
 		<div id="ifNull" style="display:none">
 			<h2>You don't have any measures in our database! </h2>
-			<h2>Please add at least one measure to start the process!</h2>
+			<h2>${weighter.firstName}, add at least one measure to start the process!</h2>
 		</div>
 		<div id="notNull" style="display:none">
-			<h2>Great your last weight measurement is: </h2>
-			<div class="lastMeasure"><c:out value="${lastMeasure.weight}" /></div>
+			<h2> Your data </h2>
+			<h3> Your last weight measure is ${lastMeasure.weight}</h3>
+			<jsp:include page="drawPlots.jsp" />
 		</div>
+		<h2>Post new measure ...</h2>
 		<sf:form method="POST" commandName="measure">
 			Weight:<sf:input path="weight"/>kg
 				<sf:errors path="weight" cssClass="error"/>
@@ -60,14 +60,13 @@
 			</div>
 			<input type="submit" value="Submit Data"/><br/>
 		</sf:form>
-		<a href="<c:url value="/profile/plots" />">Profile Graphs</a> <br/>
 		<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 			<input type="submit" value="Log Out" /><br/>
 		</form>
-    <script>
-    displayCheck();
-    </script>
+	    <script>
+	    displayCheck();
+	    </script>
 	</body>
 </html>
 

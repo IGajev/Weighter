@@ -13,7 +13,7 @@ public class JdbcMeasuresRepository implements MeasuresRepository {
 	
 	private JdbcOperations jdbcOperations;
 	private final String SQL_INSERT_MEASURE = "insert into measures (weight, hips, waist, date, weighterId) values (?, ?, ?, ?, ?)";
-	private final String SQL_GET_LAST_MEASURE = "select * from measures order by measureId desc limit 1";
+	private final String SQL_GET_LAST_MEASURE = "select * from measures where weighterId = ? order by measureId desc limit 1";
 	private final String SQL_CHECK_IF_MEASURES_EXISTS = "select count(*) from measures where weighterId = ?";
 	private final String SQL_GET_ALL_MEASURES_FOR_WEIGHTER = "select measureId, weight, waist, hips, date from measures where weighterId = ?";
 
@@ -63,7 +63,8 @@ public class JdbcMeasuresRepository implements MeasuresRepository {
 						m.setWeight(rs.getDouble("weight"));
 						m.setWaist(rs.getDouble("waist"));
 						return m;
-					}
+					},
+					weighter.getWeighterId()
 			);
 		} 
 		return measure;
