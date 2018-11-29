@@ -59,7 +59,7 @@ public class ProfileController {
 			measure.setDate(new Date());
 			measuresRepository.saveMeasure(measure, this.getLoggedWeighter());
 		}
-		return "redirect:/profile/profileView";
+		return "redirect:/profile";
 	}
 	
 	private Weighter getLoggedWeighter() {

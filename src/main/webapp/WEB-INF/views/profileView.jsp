@@ -48,10 +48,10 @@
 			Weight:<sf:input path="weight"/>kg
 				<sf:errors path="weight" cssClass="error"/>
 					<br/>
+	        Waist: <sf:input path="waist"/>cm
+	         	<sf:errors path="waist" cssClass="error"/>
+	         		<br/>
 			<div id="ifMale" style="display:none">
-		         Waist: <sf:input path="waist"/>cm
-		         	<sf:errors path="waist" cssClass="error"/>
-		         		<br/>
 			</div>
 			<div id="ifFemale" style="display:none">
 		         Hips: <sf:input path="hips"/>cm

@@ -2,12 +2,11 @@
 <%@ page session="false" %>
 <html>
 <head>  
-  <script src="${pageContext.request.contextPath}/resources/canvasjs.min.js"></script>
+  <script src="/Weighter/resources/canvasjs.min.js"></script>
   <script type="text/javascript">
   window.onload = function () {
-    
-   
-    var chart = new CanvasJS.Chart("chartContainerWeight",
+	  
+    var chartWeight = new CanvasJS.Chart("chartContainerWeight",
     {
       zoomEnabled: true,      
       title:{
@@ -29,22 +28,22 @@
     	  }
       ]
       
-   });
+    });
 
-    chart.render();
+    chartWeight.render();
 
-    var chart = new CanvasJS.Chart("chartContainerFats",
+    var chartFats = new CanvasJS.Chart("chartContainerFats",
     	    {
     	      zoomEnabled: true,      
     	      title:{
-    	        text: "Your Weight Over Time" 
+    	        text: "Your Fats Percent Over Time" 
     	      },
     	      axisX :{
     	    	title: "Time [day]",
     	        labelAngle: -30
     	      },
     	      axisY :{
-    	      	title: "Weight [kg]",
+    	      	title: "Fats [%]",
     	      	includeZero: false
     	      },
     	      data: [
@@ -57,7 +56,7 @@
     	      
     	   });
 
-    	    chart.render();
+    chartFats.render();
   }
   </script>
   </head>
