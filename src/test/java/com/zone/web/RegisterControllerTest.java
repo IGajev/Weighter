@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.zone.data.WeightersRepository;
+import com.zone.entities.MaleWeighter;
 import com.zone.entities.Weighter;
 import com.zone.exceptions.WeightersException;
 
@@ -33,7 +34,7 @@ public class RegisterControllerTest {
 		WeightersRepository weightersRepository = mock(WeightersRepository.class);
 		RegisterController registerController = new RegisterController(weightersRepository);
 		MockMvc mockMvc = standaloneSetup(registerController).build();
-		Weighter weighter = new Weighter();
+		Weighter weighter = new MaleWeighter();
 		weighter.setFirstName("Jack");
 		weighter.setLastName("Bauer");
 		weighter.setUsername("jbauer");
@@ -58,7 +59,7 @@ public class RegisterControllerTest {
 		WeightersRepository weightersRepository = mock(WeightersRepository.class);
 		RegisterController registerController = new RegisterController(weightersRepository);
 		MockMvc mockMvc = standaloneSetup(registerController).build();
-		Weighter weighter = new Weighter();
+		Weighter weighter = new MaleWeighter();
 		
 		doThrow(new WeightersException()).when(weightersRepository).saveWeighter(weighter);
 		

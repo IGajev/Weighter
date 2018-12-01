@@ -12,8 +12,6 @@ import com.zone.annotations.UniqueUsername;
 
 public class Weighter {
 
-	public Weighter() {}
-	
 	private Long weighterId;
 
 	@DecimalMax(value = "100")
@@ -28,7 +26,7 @@ public class Weighter {
 	private Double sportFactor;
 	
 	@NotNull
-	private String sex;
+	protected String sex;
 	
 	@NotNull
 	@Size(min=2, max=30)

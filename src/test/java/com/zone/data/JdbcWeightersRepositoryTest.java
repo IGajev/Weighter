@@ -6,12 +6,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcOperations;
 
+import com.zone.entities.FemaleWeighter;
+import com.zone.entities.MaleWeighter;
 import com.zone.entities.Weighter;
-import com.zone.exceptions.WeightersException;
 
 public class JdbcWeightersRepositoryTest {
 	
@@ -37,14 +37,10 @@ public class JdbcWeightersRepositoryTest {
 	public void saveNullWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
 		Weighter weighterNull = new Weighter();
-		weighterNull.setSex(null);
+		weighterNull.setSex("child");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
-		try {
-			weightersRepository.saveWeighter(weighterNull);
-		} catch (WeightersException e) {
-			assertTrue(true);
-		}
+		weightersRepository.saveWeighter(weighterNull);
 		
 		verify(jdbcOperations, times(0)).
 		update(SQL_INSERT_MALE_WEIGHTER,					
@@ -72,15 +68,11 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveMaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterMale = new Weighter();
+		Weighter weighterMale = new MaleWeighter();
 		weighterMale.setSex("male");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
-		try {
-			weightersRepository.saveWeighter(weighterMale);
-		} catch (WeightersException e) {
-			assertTrue(false);
-		}
+		weightersRepository.saveWeighter(weighterMale);
 		
 		verify(jdbcOperations, times(1)).
 		update(SQL_INSERT_MALE_WEIGHTER,					
@@ -109,15 +101,11 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveFemaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterFemale = new Weighter();
+		Weighter weighterFemale = new FemaleWeighter();
 		weighterFemale.setSex("female");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
-		try {
-			weightersRepository.saveWeighter(weighterFemale);
-		} catch (WeightersException e) {
-			assertTrue(false);
-		}
+		weightersRepository.saveWeighter(weighterFemale);
 		
 		verify(jdbcOperations, times(1)).
 		update(SQL_INSERT_FEMALE_WEIGHTER,					
@@ -147,14 +135,10 @@ public class JdbcWeightersRepositoryTest {
 	public void saveGenderWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
 		Weighter weighterGender = new Weighter();
-		weighterGender.setSex("gender");
+		weighterGender.setSex("child");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
-		try {
-			weightersRepository.saveWeighter(weighterGender);
-		} catch (WeightersException e) {
-			assertTrue(true);
-		}
+		weightersRepository.saveWeighter(weighterGender);
 		
 		verify(jdbcOperations, times(0)).
 		update(SQL_INSERT_MALE_WEIGHTER,					

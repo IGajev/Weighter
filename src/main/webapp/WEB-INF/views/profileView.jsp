@@ -16,13 +16,14 @@
 			var sex = "${weighter.sex}";
 			var lastWeight = "${lastMeasure.weight}";
 			
-			if (sex == "male") {
-		        document.getElementById('ifMale').style.display = 'block';
-		    	document.getElementById('ifFemale').style.display = 'none';
-		    }
-		    else if (sex == "female"){
-		    	document.getElementById('ifMale').style.display = 'none';
+			if (sex == "female") {
+		        document.getElementById('ifGrownUp').style.display = 'block';
 		    	document.getElementById('ifFemale').style.display = 'block';
+		        document.getElementById('Fats').style.display = 'block';
+		    }
+			else if (sex == "male") {
+		        document.getElementById('ifGrownUp').style.display = 'block';
+		        document.getElementById('Fats').style.display = 'block';
 		    }
 			if( lastWeight == 0 ) {
 				document.getElementById('ifNull').style.display = 'block';
@@ -48,13 +49,13 @@
 			Weight:<sf:input path="weight"/>kg
 				<sf:errors path="weight" cssClass="error"/>
 					<br/>
-	        Waist: <sf:input path="waist"/>cm
-	         	<sf:errors path="waist" cssClass="error"/>
-	         		<br/>
-			<div id="ifMale" style="display:none">
+			<div id="ifGrownUp" style="display:none">
+		        Waist: <sf:input path="waist"/>cm
+		         	<sf:errors path="waist" cssClass="error"/>
+		         		<br/>
 			</div>
 			<div id="ifFemale" style="display:none">
-		         Hips: <sf:input path="hips"/>cm
+		        Hips: <sf:input path="hips"/>cm
 		         	<sf:errors path="hips" cssClass="error"/>
 		         		<br/>
 			</div>

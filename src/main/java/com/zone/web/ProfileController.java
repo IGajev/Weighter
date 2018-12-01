@@ -40,7 +40,7 @@ public class ProfileController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String profilePage(Model model) {
-		Weighter weighter = this.getLoggedWeighter();
+		Weighter weighter = getLoggedWeighter();
 		Measure lastMeasure = measuresRepository.retrieveLastMeasureForWeighter(weighter);
 		List<Measure> measures = measuresRepository.retrieveAllMeasuresForWeighter(getLoggedWeighter());
 		model.addAttribute("weighter", weighter);

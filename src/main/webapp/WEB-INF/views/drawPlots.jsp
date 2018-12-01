@@ -63,6 +63,8 @@
   <body>
 	<div id="chartContainerWeight" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 	<br/>
-	<div id="chartContainerFats" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-  </body>
+	<div id="Fats" style="display:none">
+		<div id="chartContainerFats" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	</div>
+ </body>
 </html>

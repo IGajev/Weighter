@@ -146,8 +146,15 @@ public class MaleFatsTable {
 
 	}
 	
+	public static final double DIFFERENCE_MIN = 22.0;
+	public static final double DIFFERENCE_MAX = 50.0;
+	public static final double WEIGHT_MIN = 120.0;
+	public static final double WEIGHT_MAX = 300.0;
+	
 	public static Integer lookupMaleTable(Double difference, Double weight) {
-		return table[weightAxis.get( (5*Math.round(weight/5)) )][differenceAxis.get(Math.round(difference*2)/2.0)];
+		return table
+				[weightAxis.get( 5*Math.round(weight/5) )]
+				[differenceAxis.get( Math.round(difference*2)/2.0 )];
 	}
 
 }
