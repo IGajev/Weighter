@@ -2,7 +2,7 @@
 <%@ page session="false" %>
 <html>
 <head>  
-  <script src="/Weighter/resources/canvasjs.min.js"></script>
+  <script src="/Weighter/resources/js/canvasjs.min.js"></script>
   <script type="text/javascript">
   window.onload = function () {
 	  

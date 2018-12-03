@@ -5,17 +5,19 @@
 		<title>Weighter</title>
 		<link rel="stylesheet"
 			type="text/css"
-			href="<c:url value="/resources/style.css" />" >
+			href="<c:url value="/resources/css/style.css" />" >
+		<link rel="stylesheet"
+			type="text/css"
+			href="<c:url value="/resources/css/bootstrap.min.css" />" >
 	</head>
 	<body>
-		<h1>Welcome to Weighter</h1>
-		<a href="<c:url value="/profile" />">Profile</a> |
-		<a href="<c:url value="/register" />">Register</a>
-		<br/>
-		<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-			<input type="submit" value="Log Out" /><br/>
-		</form>
+		<div class="container">
+			<div class="jumbotron text-center">
+				<h1>Welcome to Weighter</h1>
+				<a href="<c:url value="/profile" />">Profile</a> |
+				<a href="<c:url value="/register" />">Register</a>
+			</div>
+		</div>
 	</body>
 </html>
 
