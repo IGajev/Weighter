@@ -61,10 +61,10 @@
   </script>
   </head>
   <body>
-	<div id="chartContainerWeight" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div id="chartContainerWeight" style="height: 370px; max-width: 1200px; margin: 0px auto;"></div>
 	<br/>
 	<div id="Fats" style="display:none">
-		<div id="chartContainerFats" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+		<div id="chartContainerFats" style="height: 370px; max-width: 1200px; margin: 0px auto;"></div>
 	</div>
  </body>
 </html>

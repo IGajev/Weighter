@@ -18,6 +18,7 @@
 				<a href="<c:url value="/profile" />">Profile</a> |
 			</div>
 		</div>
+		<h6 align="center">Weighter - All rights reserved</h6>
 	</body>
 </html>
 
