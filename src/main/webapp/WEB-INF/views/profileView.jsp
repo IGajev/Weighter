@@ -14,6 +14,7 @@
 		function displayCheck() {
 			var sex = "${weighter.sex}";
 			var lastWeight = "${lastMeasure.weight}";
+			var goalCalculated = "${requiredWeight}";
 			
 			if (sex == "female") {
 		        document.getElementById('ifGrownUp').style.display = 'block';
@@ -35,6 +36,9 @@
 				document.getElementById('notNull').style.display = 'block';
 				document.getElementById('showGraphs').style.display = 'block';
 			}
+			if ( goalCalculated > 0 ) {
+				document.getElementById('goalCalculated').style.display = 'block';
+			} 
 		}
 		</script>
 	</head>
@@ -44,10 +48,6 @@
 				<h1>Weighter</h1>
 				<a href="<c:url value="/homepage" />">Home</a> |
 				<a href="<c:url value="/register" />">Register</a>
-				<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-					<input type="submit" value="Log Out" /><br/>
-				</form>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
@@ -74,8 +74,15 @@
 						<h2>${weighter.firstName}, add at least one measure to start the process!</h2>
 					</div>
 					<div id="notNull" style="display:none">
-						<h2> ${weighter.firstName}'s data </h2>
-						<h3> Your last weight measure is ${lastMeasure.weight}</h3>
+						<h2> ${weighter.firstName}'s data: </h2>
+						<br/>
+						<h4> Last weight ${lastMeasure.weight} [kg]</h4>
+						<div id="goalCalculated" style="display:none">
+							<h4> Required weight ${requiredWeight} [kg]</h4>
+							<h4> Required fats ${requiredFatsPercent} [%]</h4>
+							<h4> Daily protein needs ${dailyProteinRequirementGrams} [g]</h4>
+							<h4> Daily protein needs ${dailyProteinRequirementBlocks} [blocks]</h4>
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -106,6 +113,10 @@
 						  </div>
 						</div>
 					</div>
+				<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
+					<input type="submit" value="Log Out" /><br/>
+				</form>
 				</div>
 			</div>
 			<div id="showGraphs" style="display:none">

@@ -48,6 +48,10 @@ public class ProfileController {
 		model.addAttribute("lastMeasure", lastMeasure);
 		model.addAttribute("dataPointsWeight", measuresService.getWeightDataPoints(measures, getLoggedWeighter()));
 		model.addAttribute("dataPointsFats", measuresService.getFatsDataPoints(measures, getLoggedWeighter()));
+		model.addAttribute("requiredWeight",measuresService.getRequiredWeight());
+		model.addAttribute("dailyProteinRequirementBlocks", measuresService.getDailyProteinRequirementBlocks());
+		model.addAttribute("dailyProteinRequirementGrams", measuresService.getDailyProteinRequirementGrams());
+		model.addAttribute("requiredFatsPercent", weighter.getPerfectFatsPercent());
 		return "profileView";
 	}
 

@@ -4,6 +4,8 @@ import javax.validation.constraints.NotNull;
 
 public class MaleWeighter extends Weighter {
 	
+	public final int perfectFatsPercent = 15;
+
 	@NotNull
 	private String sex;
 	
@@ -16,6 +18,11 @@ public class MaleWeighter extends Weighter {
 	public void setSex() {
 		this.sex = "male";
 		
+	}
+
+	@Override
+	public int getPerfectFatsPercent() {
+		return perfectFatsPercent;
 	}
 
 }

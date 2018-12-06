@@ -18,7 +18,13 @@
       },
       axisY :{
       	title: "Weight [kg]",
-      	includeZero: false
+      	includeZero: false,
+		stripLines: [{
+			value: ${requiredWeight},
+			label: "Required Weight",
+			labelFontColor: "#808080",
+			labelAlign: "near"
+		}]
       },
       data: [
     	  {
@@ -44,7 +50,13 @@
     	      },
     	      axisY :{
     	      	title: "Fats [%]",
-    	      	includeZero: false
+    	      	includeZero: false,
+    			stripLines: [{
+    				value: ${requiredFatsPercent},
+    				label: "Required Fats",
+    				labelFontColor: "#808080",
+    				labelAlign: "near"
+    			}]
     	      },
     	      data: [
     	    	  {

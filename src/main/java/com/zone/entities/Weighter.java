@@ -45,6 +45,8 @@ public class Weighter {
 	@Size(min=6, max=25)
 	private String password;
 	
+	public final int perfectFatsPercent = 19;
+
 	public Long getWeighterId() {
 		return weighterId;
 	}
@@ -115,6 +117,10 @@ public class Weighter {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public int getPerfectFatsPercent() {
+		return perfectFatsPercent;
 	}
 
 	@Override

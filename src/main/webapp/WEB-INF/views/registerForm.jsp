@@ -17,10 +17,6 @@
 				<h1>Weighter</h1>
 				<a href="<c:url value="/homepage" />">Home</a> |
 				<a href="<c:url value="/profile" />">Profile</a>
-				<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-					<input type="submit" value="Log Out" /><br/>
-				</form>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
