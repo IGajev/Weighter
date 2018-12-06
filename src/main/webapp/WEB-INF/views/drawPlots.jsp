@@ -18,13 +18,7 @@
       },
       axisY :{
       	title: "Weight [kg]",
-      	includeZero: false,
-		stripLines: [{
-			value: ${requiredWeight},
-			label: "Required Weight",
-			labelFontColor: "#808080",
-			labelAlign: "near"
-		}]
+      	includeZero: false
       },
       data: [
     	  {
