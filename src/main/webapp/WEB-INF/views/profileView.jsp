@@ -91,7 +91,7 @@
 						  <img class="card-img-top" src="/Weighter/resources/png/img_avatar7.png" alt="Card image">
 						  <div class="card-body">
 						    <h4 class="card-title">${weighter.firstName} ${weighter.lastName}</h4>
-						    <p class="card-text">You are logged in as: ${weighter.username} !</p>
+						    <p class="card-text">You are logged in as: ${weighter.username} <br/> <a href="<c:url value="/profile/update" />">Update Profile</a></p>
 						  </div>
 						</div>
 					</div>
@@ -100,7 +100,7 @@
 						  <img class="card-img-top" src="/Weighter/resources/png/img_avatar5.png" alt="Card image">
 						  <div class="card-body">
 						    <h4 class="card-title">${weighter.firstName} ${weighter.lastName}</h4>
-						    <p class="card-text">You are logged in as: ${weighter.username} !</p>
+						    <p class="card-text">You are logged in as: ${weighter.username} <br/> <a href="<c:url value="/profile/update" />">Update Profile</a></p>
 						  </div>
 						</div>
 					</div>
@@ -109,13 +109,13 @@
 						  <img class="card-img-top" src="/Weighter/resources/png/img_avatar1.png" alt="Card image">
 						  <div class="card-body">
 						    <h4 class="card-title">${weighter.firstName} ${weighter.lastName}</h4>
-						    <p class="card-text">You are logged in as: ${weighter.username} !</p>
+						    <p class="card-text">You are logged in as: ${weighter.username} <br/> <a href="<c:url value="/profile/update" />">Update Profile</a></p>
 						  </div>
 						</div>
 					</div>
 				<form method="POST" action="${pageContext.request.contextPath}/logout" id="form-logout">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-					<input type="submit" value="Log Out" /><br/>
+					<input type="submit" value="Log Out" />
 				</form>
 				</div>
 			</div>

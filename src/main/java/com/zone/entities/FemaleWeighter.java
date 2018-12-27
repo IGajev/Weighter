@@ -2,7 +2,7 @@ package com.zone.entities;
 
 import javax.validation.constraints.NotNull;
 
-public class FemaleWeighter extends Weighter {
+public class FemaleWeighter extends GeneralWeighter {
 	
 	public final int perfectFatsPercent = 22;
 

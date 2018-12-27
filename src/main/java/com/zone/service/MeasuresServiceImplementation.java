@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.zone.entities.Measure;
-import com.zone.entities.Weighter;
+import com.zone.entities.GeneralWeighter;
 
 @Service
 public class MeasuresServiceImplementation implements MeasuresService {
@@ -18,7 +18,7 @@ public class MeasuresServiceImplementation implements MeasuresService {
 	private Long dailyProteinRequirementGrams;
 	private Long dailyProteinRequirementBlocks;
 	
-	public String getWeightDataPoints(List<Measure> measures, Weighter loggedWeighter) {
+	public String getWeightDataPoints(List<Measure> measures, GeneralWeighter loggedWeighter) {
 		Gson gsonObj = new Gson();
 		Map<Object,Object> map = null;
 		List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
@@ -33,7 +33,7 @@ public class MeasuresServiceImplementation implements MeasuresService {
 		return dataPoints;
 	}
 
-	public String getFatsDataPoints(List<Measure> measures, Weighter loggedWeighter) {
+	public String getFatsDataPoints(List<Measure> measures, GeneralWeighter loggedWeighter) {
 		this.requiredWeight = null;
 		this.dailyProteinRequirementGrams = null;
 		this.dailyProteinRequirementBlocks = null;

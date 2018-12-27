@@ -22,7 +22,7 @@
 				<div class="col-sm-6">
 			        <h2>Register</h2>
 			        
-			        <sf:form method="POST" commandName="weighter">
+			        <sf:form method="POST" commandName="generalWeighter">
 			            First Name: <sf:input path="firstName" />
 			                <sf:errors path="firstName" cssClass="error"/>
 			                    <br/>
@@ -94,5 +94,8 @@
 			</div>
 		</div>
 		<h6 align="center">Weighter - All rights reserved</h6>
+		<script>
+			maleFemaleCheck();
+		</script>
     </body>
 </html>

@@ -4,11 +4,8 @@ import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-
-import com.zone.annotations.UniqueUsername;
 
 public class Weighter {
 
@@ -35,11 +32,6 @@ public class Weighter {
 	@NotNull
 	@Size(min=2, max=30)
 	private String lastName;
-	
-	@NotNull
-	@UniqueUsername
-	@Size(min=5, max=16)
-	private String username;
 	
 	@NotNull
 	@Size(min=6, max=25)
@@ -101,14 +93,6 @@ public class Weighter {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {

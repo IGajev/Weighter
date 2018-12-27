@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcOperations;
 
 import com.zone.entities.FemaleWeighter;
+import com.zone.entities.GeneralWeighter;
 import com.zone.entities.MaleWeighter;
-import com.zone.entities.Weighter;
 
 public class JdbcWeightersRepositoryTest {
 	
@@ -36,7 +36,7 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveNullWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterNull = new Weighter();
+		GeneralWeighter weighterNull = new GeneralWeighter();
 		weighterNull.setSex("child");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
@@ -68,7 +68,7 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveMaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterMale = new MaleWeighter();
+		GeneralWeighter weighterMale = new MaleWeighter();
 		weighterMale.setSex("male");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
@@ -101,7 +101,7 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveFemaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterFemale = new FemaleWeighter();
+		GeneralWeighter weighterFemale = new FemaleWeighter();
 		weighterFemale.setSex("female");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
@@ -134,7 +134,7 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveGenderWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		Weighter weighterGender = new Weighter();
+		GeneralWeighter weighterGender = new GeneralWeighter();
 		weighterGender.setSex("child");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);

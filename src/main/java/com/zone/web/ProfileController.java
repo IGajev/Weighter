@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zone.data.MeasuresRepository;
 import com.zone.data.WeightersRepository;
+import com.zone.entities.GeneralWeighter;
 import com.zone.entities.Measure;
+import com.zone.entities.UpdatedWeighter;
 import com.zone.entities.Weighter;
 import com.zone.service.MeasuresService;
 
@@ -66,7 +68,32 @@ public class ProfileController {
 		return "redirect:/profile";
 	}
 	
-	private Weighter getLoggedWeighter() {
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public String updateProfile(Model model) {
+		UpdatedWeighter updatedWeighter = new UpdatedWeighter();
+		GeneralWeighter loggedWeighter = getLoggedWeighter();
+		updatedWeighter.setFirstName(loggedWeighter.getFirstName());
+		updatedWeighter.setLastName(loggedWeighter.getLastName());
+		updatedWeighter.setUsername(loggedWeighter.getUsername());
+		updatedWeighter.setSex(loggedWeighter.getSex());
+		updatedWeighter.setSportFactor(loggedWeighter.getSportFactor());
+		model.addAttribute("updatedWeighter", updatedWeighter);
+		return "updateProfileView";
+	}
+
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String updateProfilePostWeighter(@Valid UpdatedWeighter updatedWeighter, Errors errors) {
+		if (errors.hasErrors()) {
+			return "updateProfileView";
+		} else {
+			GeneralWeighter loggedWeighter = getLoggedWeighter();
+			weightersRepository.updateWeighter(loggedWeighter, updatedWeighter);
+			return "redirect:/profile";
+		}
+	}
+
+
+	private GeneralWeighter getLoggedWeighter() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username;
 		if( principal instanceof UserDetails ) {
@@ -74,7 +101,7 @@ public class ProfileController {
 		} else {
 			username = principal.toString();
 		}
-		Weighter weighter = weightersRepository.retrieveWeighter(username);
+		GeneralWeighter weighter = weightersRepository.retrieveWeighter(username);
 		return weighter;
 	}
 }
