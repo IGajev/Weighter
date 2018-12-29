@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zone.data.WeightersRepository;
 import com.zone.entities.GeneralWeighter;
-import com.zone.entities.Weighter;
 
 @Controller
 @RequestMapping(value="/register")
@@ -26,7 +25,7 @@ public class RegisterController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String profile(Model model) {
-		model.addAttribute("weighter", new Weighter());
+		model.addAttribute("generalWeighter", new GeneralWeighter());
 		return "registerForm";
 	}
 
