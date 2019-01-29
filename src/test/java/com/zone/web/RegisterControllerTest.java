@@ -1,7 +1,6 @@
 package com.zone.web;
 
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -15,8 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.zone.data.WeightersRepository;
 import com.zone.entities.GeneralWeighter;
-import com.zone.entities.MaleWeighter;
-import com.zone.exceptions.WeightersException;
 
 public class RegisterControllerTest {
 
