@@ -34,7 +34,7 @@ public class RegisterControllerTest {
 		WeightersRepository weightersRepository = mock(WeightersRepository.class);
 		RegisterController registerController = new RegisterController(weightersRepository);
 		MockMvc mockMvc = standaloneSetup(registerController).build();
-		GeneralWeighter weighter = new MaleWeighter();
+		GeneralWeighter weighter = new GeneralWeighter();
 		weighter.setFirstName("Jack");
 		weighter.setLastName("Bauer");
 		weighter.setUsername("jbauer");
@@ -52,18 +52,5 @@ public class RegisterControllerTest {
 		.andExpect(redirectedUrl("/profile"));
 		
 		verify(weightersRepository, times(1)).saveWeighter(weighter);
-	}
-
-	@Test
-	public void registerControllerWeightersExceptionTest() throws Exception {
-		WeightersRepository weightersRepository = mock(WeightersRepository.class);
-		RegisterController registerController = new RegisterController(weightersRepository);
-		MockMvc mockMvc = standaloneSetup(registerController).build();
-		GeneralWeighter weighter = new MaleWeighter();
-		
-		doThrow(new WeightersException()).when(weightersRepository).saveWeighter(weighter);
-		
-		mockMvc.perform(post("/register"))
-		.andExpect(view().name("error"));
 	}
 }

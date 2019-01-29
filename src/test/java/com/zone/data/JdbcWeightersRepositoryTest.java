@@ -9,14 +9,11 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcOperations;
 
-import com.zone.entities.FemaleWeighter;
 import com.zone.entities.GeneralWeighter;
-import com.zone.entities.MaleWeighter;
 
 public class JdbcWeightersRepositoryTest {
 	
-	private final String SQL_INSERT_MALE_WEIGHTER = "insert into weighters (wrist, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
-	private final String SQL_INSERT_FEMALE_WEIGHTER = "insert into weighters (height, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?)";
+	private final String SQL_INSERT_WEIGHTER = "insert into weighters (wrist, height, sportFactor, sex, firstName, lastName, username, password) values (?,?,?,?,?,?,?,?)";
 	private final String SQL_CHECK_IF_WEIGHTER_EXISTS = "select count(*) from weighters where username = ?";
 
 	@Test
@@ -32,62 +29,20 @@ public class JdbcWeightersRepositoryTest {
 		assertTrue(weightersRepository.weighterIsUnique("jbauer"));
 		assertFalse(weightersRepository.weighterIsUnique("jsmith"));
 	}
-
-	@Test
-	public void saveNullWeighterTest() {
-		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		GeneralWeighter weighterNull = new GeneralWeighter();
-		weighterNull.setSex("child");
-		
-		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
-		weightersRepository.saveWeighter(weighterNull);
-		
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_MALE_WEIGHTER,					
-				weighterNull.getWrist(),
-				weighterNull.getSportFactor(),
-				weighterNull.getSex(),
-				weighterNull.getFirstName(),
-				weighterNull.getLastName(),
-				weighterNull.getUsername(),
-				weighterNull.getPassword()
-				);
-
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_FEMALE_WEIGHTER,					
-				weighterNull.getHeight(),
-				weighterNull.getSportFactor(),
-				weighterNull.getSex(),
-				weighterNull.getFirstName(),
-				weighterNull.getLastName(),
-				weighterNull.getUsername(),
-				weighterNull.getPassword()
-				);
-	}
 	
 	@Test
 	public void saveMaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		GeneralWeighter weighterMale = new MaleWeighter();
+		GeneralWeighter weighterMale = new GeneralWeighter();
 		weighterMale.setSex("male");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
 		weightersRepository.saveWeighter(weighterMale);
 		
 		verify(jdbcOperations, times(1)).
-		update(SQL_INSERT_MALE_WEIGHTER,					
+		update(SQL_INSERT_WEIGHTER,					
 				weighterMale.getWrist(),
-				weighterMale.getSportFactor(),
-				weighterMale.getSex(),
-				weighterMale.getFirstName(),
-				weighterMale.getLastName(),
-				weighterMale.getUsername(),
-				weighterMale.getPassword()
-				);
-
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_FEMALE_WEIGHTER,					
-				weighterMale.getWrist(),
+				weighterMale.getHeight(),
 				weighterMale.getSportFactor(),
 				weighterMale.getSex(),
 				weighterMale.getFirstName(),
@@ -101,26 +56,16 @@ public class JdbcWeightersRepositoryTest {
 	@Test
 	public void saveFemaleWeighterTest() {
 		JdbcOperations jdbcOperations = mock(JdbcOperations.class);
-		GeneralWeighter weighterFemale = new FemaleWeighter();
+		GeneralWeighter weighterFemale = new GeneralWeighter();
 		weighterFemale.setSex("female");
 		
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
 		weightersRepository.saveWeighter(weighterFemale);
 		
 		verify(jdbcOperations, times(1)).
-		update(SQL_INSERT_FEMALE_WEIGHTER,					
-				weighterFemale.getHeight(),
-				weighterFemale.getSportFactor(),
-				weighterFemale.getSex(),
-				weighterFemale.getFirstName(),
-				weighterFemale.getLastName(),
-				weighterFemale.getUsername(),
-				weighterFemale.getPassword()
-				);
-
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_MALE_WEIGHTER,					
+		update(SQL_INSERT_WEIGHTER,					
 				weighterFemale.getWrist(),
+				weighterFemale.getHeight(),
 				weighterFemale.getSportFactor(),
 				weighterFemale.getSex(),
 				weighterFemale.getFirstName(),
@@ -140,19 +85,9 @@ public class JdbcWeightersRepositoryTest {
 		WeightersRepository weightersRepository = new JdbcWeightersRepository(jdbcOperations);
 		weightersRepository.saveWeighter(weighterGender);
 		
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_MALE_WEIGHTER,					
+		verify(jdbcOperations, times(1)).
+		update(SQL_INSERT_WEIGHTER,					
 				weighterGender.getWrist(),
-				weighterGender.getSportFactor(),
-				weighterGender.getSex(),
-				weighterGender.getFirstName(),
-				weighterGender.getLastName(),
-				weighterGender.getUsername(),
-				weighterGender.getPassword()
-				);
-
-		verify(jdbcOperations, times(0)).
-		update(SQL_INSERT_FEMALE_WEIGHTER,					
 				weighterGender.getHeight(),
 				weighterGender.getSportFactor(),
 				weighterGender.getSex(),
